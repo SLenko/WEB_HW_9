@@ -70,7 +70,7 @@ with open(quotes_file, 'w') as f:
 authors_set = set(quote['author'] for quote in all_quotes)
 authors = [{'author': author} for author in authors_set]
 with open(authors_file, 'w') as f:
-    json.dump(authors_list, f, indent=4)
+    json.dump(authors, f, indent=4)
 
 
 # Завантаження quotes.json
