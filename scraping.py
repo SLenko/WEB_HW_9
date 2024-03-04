@@ -68,17 +68,7 @@ with open(quotes_file, 'w') as f:
 # Створення authors.json
 
 authors_set = set(quote['author'] for quote in all_quotes)
-authors_list = []
-
-for author in authors_set:
-    author_info = {
-        'fullname': author,
-        'born_date': '',  
-        'born_location': '',  
-        'description': ''
-    }
-    authors_list.append(author_info)
-
+authors = [{'author': author} for author in authors_set]
 with open(authors_file, 'w') as f:
     json.dump(authors_list, f, indent=4)
 
