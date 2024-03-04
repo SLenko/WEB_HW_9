@@ -52,12 +52,22 @@ quotes_file = os.path.join(current_dir, 'quotes.json')
 authors_file = os.path.join(current_dir, 'authors.json')
 
 # Створення quotes.json
+formatted_quotes = []
+for quote in all_quotes:
+    formatted_quote = {
+        'text': quote['text'],
+        'author': quote['author'],
+        'tags': quote['tags']
+    }
+    formatted_quotes.append(formatted_quote)
+
 with open(quotes_file, 'w') as f:
-    json.dump(all_quotes, f, indent=4)
+    json.dump(formatted_quotes, f, indent=4)
+
 
 # Створення authors.json
 authors_set = set(quote['author'] for quote in all_quotes)
-authors = [{'author': author} for author in authors_set]
+authors = [{'fullname': author} for author in authors_set]
 with open(authors_file, 'w') as f:
     json.dump(authors, f, indent=4)
 
